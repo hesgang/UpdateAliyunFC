@@ -67,7 +67,7 @@ class UpdateFC:
             access_key_secret=access_key_secret
         )
         # 访问的域名
-        config.endpoint = f"%s.cn-beijing.fc.aliyuncs.com" % account_id
+        config.endpoint = '''{}.cn-beijing.fc.aliyuncs.com'''.format(account_id)
         return FC_Open20210406Client(config)
 
     @staticmethod
