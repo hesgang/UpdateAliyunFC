@@ -56,6 +56,7 @@ class UpdateFC:
         使用AK&SK初始化账号Client
         @param access_key_id:
         @param access_key_secret:
+        @param account_id:
         @return: Client
         @throws Exception
         """
@@ -66,7 +67,7 @@ class UpdateFC:
             access_key_secret=access_key_secret
         )
         # 访问的域名
-        config.endpoint = account_id + f".cn-beijing.fc.aliyuncs.com"
+        config.endpoint = f"%s.cn-beijing.fc.aliyuncs.com" % account_id
         return FC_Open20210406Client(config)
 
     @staticmethod
