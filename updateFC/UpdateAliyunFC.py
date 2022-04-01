@@ -32,7 +32,9 @@ def _create_parser():
 
 
 if __name__ == '__main__':
+    print('runs begin')
     parser = _create_parser()
     args = parser.parse_args()
     print(args.region)
+    print('runs end')
 
