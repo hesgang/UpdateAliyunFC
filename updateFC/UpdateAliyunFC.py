@@ -94,11 +94,6 @@ if __name__ == '__main__':
     parser = _create_parser()
     args = parser.parse_args()
 
-    # with open("test.zip", "rb") as f:
-    #     by = f.read()
-    #     encoded = base64.b64encode(by)
-    #     f.close()
-    #     print(encoded)
     zipfile = fc__open_20210406_models.Code(zip_file=file)
     UpdateFC.main(args.access_key_id, args.access_key_secret, args.account_ID, args.server_name, args.function_name, zipfile)
 
