@@ -1,11 +1,7 @@
 #!/bin/bash
  
 set -e
- 
-if [ -z "$INPUT_ARGS" ]; then
-  echo 'Required Args parameter'
-  exit 1
-fi
+
 
 pip3 install -r /updateFC/requirements.txt
 
