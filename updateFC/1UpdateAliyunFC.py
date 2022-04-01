@@ -17,8 +17,6 @@ from alibabacloud_tea_util import models as util_models
 from alibabacloud_tea_console.client import Client as ConsoleClient
 from alibabacloud_tea_util.client import Client as UtilClient
 
-AccessKeyId = 'LTAI5tDkX9mJC4JfUoqqKmfF'
-AccessKeySecret = '4K3Y1tk0ZbSWMX7hX0c8x45hW2U6G6'
 
 
 class UpdateFC:
