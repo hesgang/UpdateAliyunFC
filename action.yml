@@ -1,0 +1,35 @@
+name: 'UpdateAliyunFC Action'
+description: 'GitHub Action for UpdateAliyunFC'
+author: 'hesgang <hesgang@foxmail.com>'
+branding:
+  icon: 'cloud'
+  color: 'blue'
+inputs:
+  access_key_id:
+    description: 'Aliyun AK'
+    required: true
+  access_key_secret:
+    description: 'Aliyun SK'
+    required: true
+  account_ID:
+    description: 'Aliyun account ID'
+    required: true
+  server_name:
+    description: 'Aliyun server_nam'
+    required: true
+  function_name:
+    description: 'Aliyun function_name'
+    required: true
+  region:
+    description: 'Aliyun function region'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - ${{ inputs.access_key_id }}
+  - ${{ inputs.access_key_secret }}
+  - ${{ inputs.account_ID }}
+  - ${{ inputs.server_name }}
+  - ${{ inputs.function_name }}
+  - ${{ inputs.region }}
