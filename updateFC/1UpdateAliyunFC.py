@@ -6,7 +6,8 @@
 
 import sys
 import base64
-
+import argparse
+import yaml
 from typing import List
 from Tea.core import TeaCore
 
@@ -18,10 +19,33 @@ from alibabacloud_tea_console.client import Client as ConsoleClient
 from alibabacloud_tea_util.client import Client as UtilClient
 
 
+def _create_parser():
+    with open('/action.yml', 'r') as f:
+        action = yaml.safe_load(f)
+    _parser = argparse.ArgumentParser(
+        description=action['description'])
+    inputs = action['inputs']
+
+    for key in inputs:
+        if key in ['dst_key']:
+            continue
+        input_args = inputs[key]
+        dft = input_args.get('default', '')
+        _parser.add_argument(
+            "--" + key.replace('_', '-'),
+            # Autofill the `type` according `default`, str by default
+            type=str,
+            required=input_args.get('required', False),
+            default=dft,
+            help=input_args.get('description', '')
+        )
+    return _parser
+
 
 class UpdateFC:
     def __init__(self):
-        pass
+        self.parser = _create_parser()
+        self.args = self.parser.parse_args()
 
     @staticmethod
     def create_client(
