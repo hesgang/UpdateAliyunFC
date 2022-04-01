@@ -70,8 +70,8 @@ class UpdateFC:
         return FC_Open20210406Client(config)
 
     @staticmethod
-    def main(_ak, _sk, _accountid, _sever_name, _func_name, zipcode):
-        client = UpdateFC.create_client(_ak, _accountid, _sk)
+    def main(_ak, _sk, _account_id, _sever_name, _func_name, zipcode):
+        client = UpdateFC.create_client(_ak, _sk, _account_id)
         update_function_headers = fc__open_20210406_models.UpdateFunctionHeaders()
         update_function_request = fc__open_20210406_models.UpdateFunctionRequest(code=zipcode)
         resp = client.update_function_with_options(_sever_name, _func_name, update_function_request, update_function_headers, util_models.RuntimeOptions())
