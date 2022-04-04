@@ -8,6 +8,7 @@ from git.repo import Repo
 import git
 import requests
 import os
+import zipfile
 import shutil
 
 
@@ -23,12 +24,15 @@ class Mirror(object):
     def clone(self):
         print('cloning to local...')
         mygit = git.cmd.Git(os.getcwd())
-        mygit.clone(git.cmd.Git.polish_url(self.clone_repo), kill_after_timeout=60)
+        mygit.clone(git.cmd.Git.polish_url(self.clone_repo))
 
     def in_zip(self):
         self.clone()
-        rez = shutil.make_archive(base_name='cache', base_dir='./%s' % self.repo_name, format='zip')
-        print(rez)
+        with zipfile.ZipFile('cache.zip', 'w') as target:
+            for i in os.walk(self.repo_name):
+                for n in i[2]:
+                    print(''.join((i[0], '/', n)))
+                    target.write(''.join((i[0], '/', n)))
 
 
 if __name__ == '__main__':
