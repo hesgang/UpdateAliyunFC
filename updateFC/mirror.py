@@ -23,11 +23,11 @@ class Mirror(object):
     def clone(self):
         print('cloning to local...')
         mygit = git.cmd.Git(os.getcwd())
-        mygit.clone(git.cmd.Git.polish_url(self.clone_repo))
+        mygit.clone(git.cmd.Git.polish_url(self.clone_repo), kill_after_timeout=60)
 
-    def install_zip(self):
+    def in_zip(self):
         self.clone()
-        rez = shutil.make_archive(base_name='cache', base_dir='/%s' % self.repo_name, format='zip')
+        rez = shutil.make_archive(base_name='cache', base_dir='./%s' % self.repo_name, format='zip')
         print(rez)
 
 

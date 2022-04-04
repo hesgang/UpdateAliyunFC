@@ -97,7 +97,7 @@ if __name__ == '__main__':
     parser = _create_parser()
     args = parser.parse_args()
     m = Mirror(args.repo_name)
-    m.install_zip()
+    m.in_zip()
     with open("cache.zip", "rb") as z_file:
         by = z_file.read()
         b_file = base64.b64encode(by)
