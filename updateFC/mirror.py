@@ -28,11 +28,12 @@ class Mirror(object):
 
     def in_zip(self):
         self.clone()
-        with zipfile.ZipFile('cache.zip', 'w') as target:
-            for i in os.walk(self.repo_name):
+        os.chdir(self.repo_name)
+        with zipfile.ZipFile('../cache.zip', 'w') as target:
+            for i in os.walk("."):
                 for n in i[2]:
-                    print(''.join((i[0], '/', n)))
                     target.write(''.join((i[0], '/', n)))
+        os.chdir('..')
 
 
 if __name__ == '__main__':
