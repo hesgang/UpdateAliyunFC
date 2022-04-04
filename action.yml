@@ -23,6 +23,9 @@ inputs:
   region:
     description: 'Aliyun function region'
     required: true
+  repo_name:
+    description: 'repo name'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
