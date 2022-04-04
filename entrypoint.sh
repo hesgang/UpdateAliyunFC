@@ -10,4 +10,5 @@ python3 /updateFC/UpdateAliyunFC.py --access-key-id "${INPUT_ACCESS_KEY_ID}" \
 --account-ID "${INPUT_ACCOUNT_ID}" \
 --server-name "${INPUT_SERVER_NAME}" \
 --function-name "${INPUT_FUNCTION_NAME}" \
---region "${INPUT_REGION}" 
+--region "${INPUT_REGION}" \
+--repo-name "${INPUT_REPO_NAME}"

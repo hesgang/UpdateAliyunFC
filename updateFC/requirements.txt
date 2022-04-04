@@ -2,3 +2,5 @@ pyyaml
 alibabacloud-fc-open20210406
 alibabacloud_tea_console
 pytea
+gitpython
+tenacity
