@@ -94,11 +94,10 @@ class UpdateFC:
 
 
 if __name__ == '__main__':
-    print(os.getcwd())
     parser = _create_parser()
     args = parser.parse_args()
     m = Mirror(args.repo_name)
-    m.download()
+    m.install_zip()
     with open("cache.zip", "rb") as z_file:
         by = z_file.read()
         b_file = base64.b64encode(by)
