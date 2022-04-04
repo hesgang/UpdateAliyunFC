@@ -41,7 +41,6 @@ class Mirror(object):
         print(rez)
 
 
-
 if __name__ == '__main__':
     m = Mirror('hesgang/Auto-Run')
     m._clone()

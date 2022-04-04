@@ -95,12 +95,14 @@ class UpdateFC:
 
 if __name__ == '__main__':
     print(os.getcwd())
+    parser = _create_parser()
+    args = parser.parse_args()
+    m = Mirror(args.repo_name)
+    m.download()
     with open("cache.zip", "rb") as z_file:
         by = z_file.read()
         b_file = base64.b64encode(by)
         z_file.close()
-    parser = _create_parser()
-    args = parser.parse_args()
 
     zipfile = fc__open_20210406_models.Code(zip_file=b_file.decode())
     UpdateFC.main(args.access_key_id, args.access_key_secret, args.account_ID, args.region, args.server_name, args.function_name, zipfile)
