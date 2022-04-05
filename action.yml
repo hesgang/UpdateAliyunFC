@@ -26,6 +26,9 @@ inputs:
   repo_name:
     description: 'repo name'
     required: true
+  token:
+    description: 'personal token'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -36,3 +39,5 @@ runs:
   - ${{ inputs.server_name }}
   - ${{ inputs.function_name }}
   - ${{ inputs.region }}
+  - ${{ inputs.repo_name }}
+  - ${{ inputs.token }}
