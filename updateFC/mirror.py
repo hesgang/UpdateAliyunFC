@@ -19,7 +19,7 @@ class Mirror(object):
         self.token = token
         self.main_url = """https://codeload.github.com/{}/zip/refs/heads/main?token={}""".format(repo, self.token)
         self.master_url = """https://codeload.github.com/{}/zip/refs/heads/master?token={}""".format(repo, self.token)
-        self.clone_repo = """https://github.com/{}.git""".format(repo)
+        self.clone_repo = """https://{}:{}@github.com/{}.git""".format(self.user_name, self.token, self.repo)
 
     @retry(wait=wait_exponential(), reraise=True, stop=stop_after_attempt(3))
     def download(self):
